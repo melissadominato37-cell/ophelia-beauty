@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serviços | Ophelia Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--lav:#c9a7d4;--lav-lt:#e8d8f0;--lav-xs:#f4ecf9;--pink:#d4a0b5;--pink-lt:#f5e6ef;--mauve:#9b6b8a;--dark:#3d2b4a;--marble:#faf7fb}
+    html{scroll-behavior:smooth}
+    body{font-family:'Lato',sans-serif;color:var(--dark);background:var(--marble);overflow-x:hidden}
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,251,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--lav-lt);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:80px;transition:box-shadow .3s}
+    header.scrolled{box-shadow:0 4px 28px rgba(155,107,138,.14)}
+    .logo-area{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-area img{width:62px;height:62px;object-fit:contain}
+    .logo-text h1{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}
+    .logo-text span{display:block;font-size:.6rem;letter-spacing:3px;color:var(--mauve);text-transform:uppercase;margin-top:2px}
+    nav{display:flex;align-items:center;gap:6px}
+    nav a{text-decoration:none;font-size:.87rem;color:var(--dark);font-weight:600;padding:8px 16px;border-radius:50px;transition:all .25s}
+    nav a:hover,nav a.active{background:var(--lav-lt);color:var(--mauve)}
+    .btn-nav{background:linear-gradient(135deg,var(--lav),var(--pink));color:#fff;border:none;border-radius:50px;padding:11px 24px;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none}
+    .btn-nav:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(155,107,138,.35)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{width:26px;height:2px;background:var(--dark);border-radius:2px;display:block}
+    .mob-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(250,247,251,.98);padding:20px 6%;flex-direction:column;gap:4px;border-bottom:1px solid var(--lav-lt);box-shadow:0 10px 30px rgba(155,107,138,.1)}
+    .mob-menu.open{display:flex}
+    .mob-menu a{text-decoration:none;font-size:.95rem;font-weight:600;color:var(--dark);padding:12px 16px;border-radius:12px;transition:all .2s}
+    .mob-menu a:hover{background:var(--lav-lt);color:var(--mauve)}
+    .bot{position:absolute;pointer-events:none;inset:0;z-index:0;overflow:hidden}
+    .bot svg{position:absolute}
+    .page-hero{position:relative;padding:140px 6% 80px;overflow:hidden;background:linear-gradient(145deg,#f5eafa 0%,#fce8f4 100%);text-align:center}
+    .page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,167,212,.18);border:1px solid rgba(201,167,212,.5);border-radius:50px;padding:6px 18px;font-size:.74rem;font-weight:700;color:var(--mauve);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:18px}
+    .page-hero h1 em{font-style:italic;color:var(--mauve)}
+    .page-hero p{font-size:1rem;color:#6b5876;line-height:1.75}
+    .sec{padding:90px 6%;position:relative;overflow:hidden}
+    .inner{max-width:1100px;margin:0 auto}
+    .sec-badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--mauve);font-weight:700;margin-bottom:14px}
+    .sec-badge::before{content:'✦'}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;color:var(--dark);margin-bottom:18px;line-height:1.2}
+    .sec-title em{font-style:italic;color:var(--mauve)}
+
+    /* SERVIÇOS CARDS */
+    .serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+    .serv-card{background:#fff;border-radius:22px;border:1px solid rgba(201,167,212,.18);padding:36px 28px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s;cursor:default}
+    .serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lav),var(--pink));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+    .serv-card:hover{transform:translateY(-7px);box-shadow:0 22px 56px rgba(155,107,138,.17)}
+    .serv-card:hover::before{transform:scaleX(1)}
+    .serv-card.featured{background:linear-gradient(145deg,#f0ddf7,#fce8f4);border:1px solid rgba(201,167,212,.35)}
+    .s-icon{width:62px;height:62px;border-radius:18px;background:linear-gradient(135deg,var(--lav-lt),var(--pink-lt));display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:20px}
+    .serv-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+    .serv-card p{font-size:.85rem;color:#7a6080;line-height:1.65;margin-bottom:16px}
+    .s-tag{display:inline-block;background:var(--lav-lt);color:var(--mauve);border-radius:50px;padding:4px 14px;font-size:.73rem;font-weight:700}
+    .serv-card ul{margin:12px 0 16px;padding-left:18px;font-size:.83rem;color:#7a6080;line-height:2}
+
+    /* PROCESSO */
+    .processo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .proc-step{text-align:center;padding:28px 20px;background:#fff;border-radius:20px;border:1px solid rgba(201,167,212,.18);transition:all .3s;position:relative}
+    .proc-step:hover{background:var(--lav-xs);transform:translateY(-4px);box-shadow:0 12px 30px rgba(155,107,138,.12)}
+    .proc-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--lav),var(--pink));color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .proc-step h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--dark);margin-bottom:8px}
+    .proc-step p{font-size:.82rem;color:#7a6080;line-height:1.55}
+
+    /* FAQ */
+    .faq-list{display:flex;flex-direction:column;gap:14px;max-width:750px;margin:0 auto}
+    .faq-item{background:#fff;border-radius:16px;border:1px solid rgba(201,167,212,.2);overflow:hidden}
+    .faq-q{padding:20px 24px;font-weight:700;font-size:.93rem;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+    .faq-q:hover{background:var(--lav-xs)}
+    .faq-q span{font-size:1.2rem;color:var(--mauve);transition:transform .3s}
+    .faq-item.open .faq-q span{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+    .faq-item.open .faq-a{max-height:200px;padding:0 24px 20px}
+    .faq-a p{font-size:.87rem;color:#7a6080;line-height:1.7}
+
+    .btn-primary{background:linear-gradient(135deg,var(--lav),var(--pink));color:#fff;border:none;border-radius:50px;padding:14px 32px;font-size:.94rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:all .3s;text-decoration:none}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(155,107,138,.4)}
+    .text-center{text-align:center}
+
+    footer{background:var(--dark);color:rgba(255,255,255,.6);padding:50px 6% 28px;position:relative}
+    footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lav),var(--pink),var(--lav))}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 44px}
+    .footer-brand p{font-size:.83rem;line-height:1.7;margin-top:12px;color:rgba(255,255,255,.5)}
+    .footer-socials{display:flex;gap:10px;margin-top:18px}
+    .fsoc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.65);transition:all .3s;font-size:1rem}
+    .fsoc:hover{background:var(--lav);color:#fff}
+    .footer-col h5{color:#fff;font-size:.87rem;font-weight:700;margin-bottom:16px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .footer-col ul li a{text-decoration:none;color:rgba(255,255,255,.52);font-size:.83rem;transition:color .3s}
+    .footer-col ul li a:hover{color:var(--lav)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;text-align:center;max-width:1100px;margin:0 auto;font-size:.78rem;color:rgba(255,255,255,.32)}
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.6rem;box-shadow:0 6px 22px rgba(37,211,102,.5);transition:all .3s}
+    .wa-float:hover{transform:scale(1.12)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){nav{display:none}.hamburger{display:flex}header .btn-nav{display:none}.serv-grid,.processo-grid,.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:580px){.serv-grid,.processo-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header id="navbar">
+  <a href="index.html" class="logo-area"><img src="logo.png" alt="Ophelia Beauty"/><div class="logo-text"><h1>Ophelia Beauty</h1><span>Clínica Biomédica Estética</span></div></a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav>
+    <a href="index.html">Início</a><a href="sobre.html">Sobre</a>
+    <a href="servicos.html" class="active">Serviços</a>
+    <a href="diferenciais.html">Diferenciais</a><a href="contato.html">Contato</a>
+  </nav>
+  <a href="contato.html" class="btn-nav">Agendar Avaliação ✦</a>
+</header>
+<div class="mob-menu" id="mob">
+  <a href="index.html">🏠 Início</a><a href="sobre.html">🌸 Sobre</a>
+  <a href="servicos.html">✨ Serviços</a><a href="diferenciais.html">🏆 Diferenciais</a><a href="contato.html">📋 Contato</a>
+</div>
+
+<div class="page-hero">
+  <div class="bot">
+    <svg width="320" height="400" viewBox="0 0 320 400" style="left:-30px;top:0;opacity:.17">
+      <path d="M25 400 Q50 305 78 228 Q106 148 86 68" stroke="#c9a7d4" stroke-width="2" fill="none"/>
+      <path d="M78 228 Q116 212 140 204" stroke="#d4a0b5" stroke-width="1.3" fill="none"/>
+      <path d="M83 150 Q121 133 145 125" stroke="#d4a0b5" stroke-width="1.3" fill="none"/>
+      <circle cx="140" cy="204" r="5" fill="#d4a0b5" opacity=".55"/><circle cx="145" cy="125" r="5" fill="#c9a7d4" opacity=".55"/>
+      <circle cx="86" cy="68" r="11" fill="none" stroke="#d4a0b5" stroke-width="1" opacity=".5"/>
+      <circle cx="86" cy="57" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="97" cy="63" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="97" cy="73" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="86" cy="79" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="75" cy="73" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="75" cy="63" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="86" cy="68" r="5" fill="#f0e0f5" opacity=".8"/>
+    </svg>
+    <svg width="280" height="360" viewBox="0 0 280 360" style="right:-20px;bottom:0;opacity:.14">
+      <path d="M260 360 Q232 272 206 196 Q180 126 200 58" stroke="#d4a0b5" stroke-width="2" fill="none"/>
+      <path d="M206 196 Q170 180 147 172" stroke="#c9a7d4" stroke-width="1.3" fill="none"/>
+      <circle cx="147" cy="172" r="4" fill="#c9a7d4" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="page-hero-inner reveal">
+    <div class="page-badge">✨ Tratamentos</div>
+    <h1>Nossos <em>Serviços</em></h1>
+    <p>Tratamentos biomédicos estéticos desenvolvidos para realçar sua beleza com segurança, precisão e resultados que transformam.</p>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="sec" style="background:var(--marble)">
+  <div class="bot"><svg width="220" height="280" viewBox="0 0 220 280" style="right:-15px;top:40px;opacity:.09"><path d="M200 0 Q172 75 146 148 Q120 225 140 278" stroke="#c9a7d4" stroke-width="1.8" fill="none"/><path d="M146 148 Q112 133 90 125" stroke="#d4a0b5" stroke-width="1.2" fill="none"/><circle cx="90" cy="125" r="4" fill="#d4a0b5" opacity=".5"/></svg></div>
+  <div class="inner">
+    <div class="serv-grid">
+      <div class="serv-card featured reveal">
+        <div class="s-icon">💉</div>
+        <h3>Toxina Botulínica</h3>
+        <p>Suaviza linhas de expressão e rugas, proporcionando um aspecto mais jovem e descansado com resultado natural e duradouro.</p>
+        <ul><li>Testa glabelar e frontal</li><li>Pés de galinha</li><li>Elevação de sobrancelha</li><li>Hiperidrose (suor excessivo)</li></ul>
+        <span class="s-tag">⭐ Mais Popular</span>
+      </div>
+      <div class="serv-card reveal" style="transition-delay:.08s">
+        <div class="s-icon">✨</div>
+        <h3>Preenchimento Facial</h3>
+        <p>Restaura volume e redefine contornos com ácido hialurônico premium para resultados harmoniosos e naturais.</p>
+        <ul><li>Lábios e contorno labial</li><li>Maçãs do rosto</li><li>Olheiras e tear trough</li><li>Nariz (rinoplastia)</li></ul>
+        <span class="s-tag">✦ Destaque</span>
+      </div>
+      <div class="serv-card reveal" style="transition-delay:.16s">
+        <div class="s-icon">🌿</div>
+        <h3>Bioestimuladores</h3>
+        <p>Estimula a produção natural de colágeno, melhorando firmeza e textura da pele de forma progressiva e duradoura.</p>
+        <ul><li>Sculptra (PLLA)</li><li>Radiesse (CaHA)</li><li>Ellansé (PCL)</li><li>Protocolo facial completo</li></ul>
+        <span class="s-tag">🔬 Inovação</span>
+      </div>
+      <div class="serv-card reveal" style="transition-delay:.08s">
+        <div class="s-icon">💆</div>
+        <h3>Skin Care Avançado</h3>
+        <p>Protocolos personalizados de cuidado com a pele para uma pele radiante, hidratada e uniforme.</p>
+        <ul><li>Limpeza de pele profunda</li><li>Hidratação intensa</li><li>Tratamento para acne</li><li>Clareamento de manchas</li></ul>
+        <span class="s-tag">🌸 Relaxante</span>
+      </div>
+      <div class="serv-card featured reveal" style="transition-delay:.16s">
+        <div class="s-icon">⚡</div>
+        <h3>Radiofrequência</h3>
+        <p>Tecnologia não invasiva que estimula colágeno e combate a flacidez cutânea com resultados visíveis e progressivos.</p>
+        <ul><li>Flacidez facial e corporal</li><li>Gordura localizada</li><li>Celulite</li><li>Pele de laranja</li></ul>
+        <span class="s-tag">🛡 Sem Cirurgia</span>
+      </div>
+      <div class="serv-card reveal" style="transition-delay:.24s">
+        <div class="s-icon">🧴</div>
+        <h3>Peeling Químico</h3>
+        <p>Renovação celular profunda para tratar manchas, acne e envelhecimento, revelando uma pele luminosa.</p>
+        <ul><li>Peeling de TCA</li><li>Peeling de glicólico</li><li>Peeling de resorcinol</li><li>Protocolo pós-acne</li></ul>
+        <span class="s-tag">💫 Renovação</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="sec" style="background:linear-gradient(180deg,#f5eafa 0%,var(--marble) 100%)">
+  <div class="inner">
+    <div class="text-center reveal" style="margin-bottom:56px">
+      <div class="sec-badge" style="justify-content:center;display:flex">Como Funciona</div>
+      <h2 class="sec-title">Nosso <em>Processo</em></h2>
+      <p style="font-size:.94rem;color:#7a6080;max-width:500px;margin:0 auto;line-height:1.7">Do agendamento ao resultado final, cuidamos de cada detalhe da sua experiência.</p>
+    </div>
+    <div class="processo-grid">
+      <div class="proc-step reveal"><div class="proc-num">01</div><h4>Agendamento</h4><p>Agende online ou pelo WhatsApp. Escolha o melhor horário para você.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.1s"><div class="proc-num">02</div><h4>Avaliação</h4><p>Análise facial completa e personalizada para definir o melhor protocolo.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.2s"><div class="proc-num">03</div><h4>Tratamento</h4><p>Procedimento realizado com técnica, segurança e produtos premium.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.3s"><div class="proc-num">04</div><h4>Acompanhamento</h4><p>Suporte pós-tratamento e retorno para garantir os melhores resultados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="background:#fff">
+  <div class="inner">
+    <div class="text-center reveal" style="margin-bottom:48px">
+      <div class="sec-badge" style="justify-content:center;display:flex">Dúvidas Frequentes</div>
+      <h2 class="sec-title">Perguntas <em>Frequentes</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">Os procedimentos são seguros? <span>+</span></div>
+        <div class="faq-a"><p>Sim! Todos os procedimentos são realizados por biomédica habilitada, com produtos certificados pela ANVISA e seguindo rigorosos protocolos de segurança.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.05s">
+        <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo dura o resultado? <span>+</span></div>
+        <div class="faq-a"><p>Depende do procedimento. A toxina botulínica dura de 4 a 6 meses, o preenchimento de 12 a 18 meses, e os bioestimuladores podem durar de 2 a 3 anos.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.1s">
+        <div class="faq-q" onclick="toggleFaq(this)">Os procedimentos doem? <span>+</span></div>
+        <div class="faq-a"><p>A maioria dos procedimentos é minimamente desconfortável. Utilizamos anestesia tópica quando necessário para garantir o máximo conforto durante o tratamento.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.15s">
+        <div class="faq-q" onclick="toggleFaq(this)">Preciso de tempo de recuperação? <span>+</span></div>
+        <div class="faq-a"><p>A maior parte dos procedimentos não requer repouso. Alguns podem apresentar vermelhidão ou pequenas marcas por 24-48h, mas você pode retornar às atividades normais no mesmo dia.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.2s">
+        <div class="faq-q" onclick="toggleFaq(this)">Como agendar minha avaliação? <span>+</span></div>
+        <div class="faq-a"><p>Você pode agendar pelo nosso WhatsApp, pelo formulário na página de contato ou pelas redes sociais. O agendamento é rápido e fácil!</p></div>
+      </div>
+    </div>
+    <div class="text-center reveal" style="margin-top:48px">
+      <a href="contato.html" class="btn-primary">Agendar Minha Avaliação 🌸</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-area"><img src="logo.png" alt="Ophelia Beauty" style="width:52px;height:52px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85"/><div class="logo-text" style="margin-left:10px"><h1 style="color:#fff;font-size:1.15rem">Ophelia Beauty</h1><span style="color:rgba(255,255,255,.45)">Clínica Biomédica Estética</span></div></a>
+      <p>Tecnologia, ciência e cuidado para revelar sua melhor versão.</p>
+      <div class="footer-socials"><a class="fsoc" href="#">📸</a><a class="fsoc" href="#">💬</a><a class="fsoc" href="#">📘</a></div>
+    </div>
+    <div class="footer-col"><h5>Páginas</h5><ul><li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="diferenciais.html">Diferenciais</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    <div class="footer-col"><h5>Serviços</h5><ul><li><a href="#">Toxina Botulínica</a></li><li><a href="#">Preenchimento</a></li><li><a href="#">Bioestimuladores</a></li><li><a href="#">Skin Care</a></li><li><a href="#">Radiofrequência</a></li></ul></div>
+    <div class="footer-col"><h5>Contato</h5><ul><li><a href="#">📍 Sua cidade, Brasil</a></li><li><a href="#">📞 (00) 00000-0000</a></li><li><a href="#">✉️ contato@ophelia.com</a></li><li><a href="#">🕐 Seg–Sáb 9h–18h</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 Ophelia Beauty · Todos os direitos reservados</p></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5500000000000" target="_blank">💬</a>
+<script>
+  window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
