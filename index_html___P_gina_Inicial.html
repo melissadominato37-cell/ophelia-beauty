@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/aaI3MuvQ08OqMNnHHg70XNTJSN6giHYY/3678aa06-a2f8-4fb8-8c02-b3a2e93b34dd/files/">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ophelia Beauty | Clínica Biomédica Estética</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lav: #c9a7d4; --lav-lt: #e8d8f0; --lav-xs: #f4ecf9;
+      --pink: #d4a0b5; --pink-lt: #f5e6ef;
+      --mauve: #9b6b8a; --dark: #3d2b4a; --white: #ffffff; --marble: #faf7fb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; color: var(--dark); background: var(--marble); overflow-x: hidden; }
+
+    /* ── NAVBAR ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(250,247,251,0.95); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--lav-lt);
+      padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 80px;
+      transition: box-shadow .3s;
+    }
+    header.scrolled { box-shadow: 0 4px 28px rgba(155,107,138,.14); }
+    .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-area img { width: 62px; height: 62px; object-fit: contain; }
+    .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--dark); }
+    .logo-text span { display: block; font-size: .6rem; letter-spacing: 3px; color: var(--mauve); text-transform: uppercase; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 6px; }
+    nav a {
+      text-decoration: none; font-size: .87rem; color: var(--dark); font-weight: 600;
+      padding: 8px 16px; border-radius: 50px; transition: all .25s; letter-spacing: .3px;
+    }
+    nav a:hover, nav a.active { background: var(--lav-lt); color: var(--mauve); }
+    .btn-nav {
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      color: #fff; border: none; border-radius: 50px;
+      padding: 11px 24px; font-size: .86rem; font-weight: 700;
+      cursor: pointer; transition: all .3s; text-decoration: none;
+    }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(155,107,138,.35); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: var(--dark); border-radius: 2px; transition: .3s; display: block; }
+    .mob-menu {
+      display: none; position: fixed; top: 80px; left: 0; right: 0; z-index: 999;
+      background: rgba(250,247,251,.98); padding: 20px 6%; flex-direction: column; gap: 4px;
+      border-bottom: 1px solid var(--lav-lt); box-shadow: 0 10px 30px rgba(155,107,138,.1);
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { text-decoration: none; font-size: .95rem; font-weight: 600; color: var(--dark); padding: 12px 16px; border-radius: 12px; transition: all .2s; }
+    .mob-menu a:hover { background: var(--lav-lt); color: var(--mauve); }
+
+    /* ── BOT SVG ── */
+    .bot { position: absolute; pointer-events: none; overflow: hidden; inset: 0; z-index: 0; }
+    .bot svg { position: absolute; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      padding: 120px 6% 90px;
+      display: flex; align-items: center;
+      background: linear-gradient(145deg, #faf7fb 0%, #f4ecf9 60%, #fce8f4 100%);
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 60px;
+      max-width: 1160px; margin: 0 auto; width: 100%; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,167,212,.18); border: 1px solid rgba(201,167,212,.5);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: .75rem; font-weight: 700; color: var(--mauve); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      font-weight: 700; line-height: 1.18; color: var(--dark); margin-bottom: 20px;
+    }
+    .hero-left h2 em { font-style: italic; color: var(--mauve); }
+    .hero-left p { font-size: .97rem; line-height: 1.75; color: #6b5876; max-width: 430px; margin-bottom: 36px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--lav), var(--pink)); color: #fff; border: none; border-radius: 50px;
+      padding: 14px 32px; font-size: .94rem; font-weight: 700;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s; text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(155,107,138,.4); }
+    .btn-outline {
+      background: transparent; color: var(--mauve); border: 2px solid var(--lav); border-radius: 50px;
+      padding: 12px 28px; font-size: .9rem; font-weight: 700; cursor: pointer; transition: all .3s; text-decoration: none;
+    }
+    .btn-outline:hover { background: var(--lav-lt); transform: translateY(-2px); }
+    .hero-right { position: relative; }
+    .hero-img-wrap {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 28px 70px rgba(155,107,138,.22);
+      background: linear-gradient(145deg, #f0ddf7, #fce8f4);
+      aspect-ratio: 4/3.2; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-placeholder { display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--mauve); opacity: .5; }
+    .hero-placeholder svg { width: 64px; height: 64px; }
+    .float-card {
+      position: absolute; bottom: -20px; left: -20px;
+      background: #fff; border-radius: 18px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 10px 34px rgba(155,107,138,.18); z-index: 2;
+    }
+    .fc-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--lav-lt); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .fc-info p:first-child { font-weight: 700; font-size: .95rem; color: var(--dark); }
+    .fc-info p:last-child { font-size: .73rem; color: var(--mauve); }
+    .float-card2 {
+      position: absolute; top: -16px; right: -16px;
+      background: linear-gradient(135deg, var(--lav), var(--pink)); color: #fff;
+      border-radius: 14px; padding: 12px 16px; text-align: center;
+      box-shadow: 0 8px 24px rgba(155,107,138,.3); z-index: 2;
+    }
+    .float-card2 .big { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; line-height: 1; }
+    .float-card2 .sm { font-size: .7rem; opacity: .88; letter-spacing: .5px; }
+
+    /* ── FEATURES BAR ── */
+    #features {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #f5e8fb 0%, #fce8f4 100%);
+      padding: 52px 6%;
+      border-top: 1px solid rgba(201,167,212,.25);
+      border-bottom: 1px solid rgba(201,167,212,.25);
+    }
+    .features-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 28px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .feat { display: flex; align-items: flex-start; gap: 14px; }
+    .feat-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 14px; background: rgba(201,167,212,.2); display: flex; align-items: center; justify-content: center; }
+    .feat-icon svg { width: 22px; height: 22px; stroke: var(--mauve); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feat h4 { font-size: .93rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .feat p { font-size: .79rem; color: #7a6080; line-height: 1.5; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── WA FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25d366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.6rem;
+      box-shadow: 0 6px 22px rgba(37,211,102,.5); transition: all .3s;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 32px rgba(37,211,102,.65); }
+
+    @media(max-width:900px){
+      nav { display: none; }
+      .hamburger { display: flex; }
+      header .btn-nav { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .hero-right { order: -1; }
+    }
+    @media(max-width:580px){ .features-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header id="navbar">
+  <a href="index.html" class="logo-area">
+    <img src="logo.png" alt="Ophelia Beauty"/>
+    <div class="logo-text"><h1>Ophelia Beauty</h1><span>Clínica Biomédica Estética</span></div>
+  </a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <nav>
+    <a href="index.html" class="active">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="diferenciais.html">Diferenciais</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+  <a href="contato.html" class="btn-nav">Agendar Avaliação ✦</a>
+</header>
+<div class="mob-menu" id="mob">
+  <a href="index.html">🏠 Início</a>
+  <a href="sobre.html">🌸 Sobre</a>
+  <a href="servicos.html">✨ Serviços</a>
+  <a href="diferenciais.html">🏆 Diferenciais</a>
+  <a href="contato.html">📋 Contato</a>
+</div>
+
+<section id="hero">
+  <div class="bot">
+    <svg width="420" height="520" viewBox="0 0 420 520" style="left:-60px;top:-20px;opacity:.2">
+      <path d="M40 520 Q60 400 100 320 Q130 250 110 160 Q95 90 130 40" stroke="#c9a7d4" stroke-width="2.5" fill="none"/>
+      <path d="M100 320 Q140 290 165 260" stroke="#d4a0b5" stroke-width="1.5" fill="none"/>
+      <path d="M110 250 Q150 215 180 200" stroke="#d4a0b5" stroke-width="1.5" fill="none"/>
+      <path d="M105 190 Q85 155 70 130" stroke="#c9a7d4" stroke-width="1.2" fill="none"/>
+      <circle cx="165" cy="260" r="5" fill="#d4a0b5" opacity=".7"/>
+      <circle cx="180" cy="200" r="5" fill="#c9a7d4" opacity=".7"/>
+      <circle cx="70" cy="130" r="6" fill="#d4a0b5" opacity=".6"/>
+      <ellipse cx="120" cy="300" rx="12" ry="5" fill="#c9a7d4" opacity=".3" transform="rotate(-30,120,300)"/>
+      <ellipse cx="140" cy="220" rx="12" ry="5" fill="#d4a0b5" opacity=".3" transform="rotate(20,140,220)"/>
+      <circle cx="130" cy="40" r="12" fill="none" stroke="#d4a0b5" stroke-width="1.2" opacity=".6"/>
+      <circle cx="130" cy="28" r="5" fill="#d4a0b5" opacity=".5"/><circle cx="142" cy="35" r="5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="142" cy="45" r="5" fill="#d4a0b5" opacity=".5"/><circle cx="130" cy="52" r="5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="118" cy="45" r="5" fill="#d4a0b5" opacity=".5"/><circle cx="118" cy="35" r="5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="130" cy="40" r="5" fill="#e8c8d8" opacity=".8"/>
+    </svg>
+    <svg width="380" height="460" viewBox="0 0 380 460" style="right:-40px;top:30px;opacity:.16">
+      <path d="M360 10 Q320 100 290 180 Q260 270 280 370 Q295 430 270 460" stroke="#c9a7d4" stroke-width="2.5" fill="none"/>
+      <path d="M290 180 Q245 165 215 155" stroke="#d4a0b5" stroke-width="1.5" fill="none"/>
+      <path d="M280 270 Q235 255 205 250" stroke="#d4a0b5" stroke-width="1.5" fill="none"/>
+      <circle cx="215" cy="155" r="5" fill="#d4a0b5" opacity=".7"/>
+      <circle cx="205" cy="250" r="5" fill="#c9a7d4" opacity=".7"/>
+      <ellipse cx="270" cy="200" rx="12" ry="5" fill="#c9a7d4" opacity=".28" transform="rotate(25,270,200)"/>
+      <circle cx="360" cy="10" r="10" fill="none" stroke="#d4a0b5" stroke-width="1.2" opacity=".6"/>
+      <circle cx="360" cy="0" r="4.5" fill="#d4a0b5" opacity=".5"/><circle cx="370" cy="6" r="4.5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="370" cy="14" r="4.5" fill="#d4a0b5" opacity=".5"/><circle cx="360" cy="20" r="4.5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="350" cy="14" r="4.5" fill="#d4a0b5" opacity=".5"/><circle cx="350" cy="6" r="4.5" fill="#c9a7d4" opacity=".5"/>
+      <circle cx="360" cy="10" r="4" fill="#e8c8d8" opacity=".8"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-badge">🌸 Clínica Certificada & Premiada</div>
+      <h2>Tecnologia que revela<br/>sua <em>melhor versão</em></h2>
+      <p>Clínica biomédica estética focada em inovação, autoestima e cuidados personalizados para realçar a sua beleza natural com segurança e excelência.</p>
+      <div class="hero-actions">
+        <a href="contato.html" class="btn-primary">Agendar Avaliação →</a>
+        <a href="servicos.html" class="btn-outline">Ver Serviços</a>
+      </div>
+    </div>
+    <div class="hero-right reveal" style="transition-delay:.15s">
+      <div class="hero-img-wrap">
+        <!-- <img src="assets/hero.jpg" alt="Ophelia Beauty"/> -->
+        <div class="hero-placeholder">
+          <svg viewBox="0 0 80 80" fill="none" stroke="#c9a7d4" stroke-width="1.5"><circle cx="40" cy="28" r="16"/><path d="M20 70c0-11 9-20 20-20s20 9 20 20"/></svg>
+          <p>Adicione sua foto</p><p style="font-size:.7rem;opacity:.6">assets/hero.jpg</p>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="fc-icon">⭐</div>
+        <div class="fc-info"><p>+500 Clientes</p><p>Satisfeitas</p></div>
+      </div>
+      <div class="float-card2">
+        <div class="big">8+</div>
+        <div class="sm">Anos de<br/>Experiência</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="features-grid">
+    <div class="feat reveal">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><h4>Segurança Total</h4><p>Protocolos avançados e produtos certificados pela ANVISA.</p></div>
+    </div>
+    <div class="feat reveal" style="transition-delay:.08s">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+      <div><h4>Resultados Naturais</h4><p>Realçamos sua beleza com harmonia e naturalidade.</p></div>
+    </div>
+    <div class="feat reveal" style="transition-delay:.16s">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div><h4>Atendimento Exclusivo</h4><p>Planos personalizados para as necessidades da sua pele.</p></div>
+    </div>
+    <div class="feat reveal" style="transition-delay:.24s">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <div><h4>Tecnologia de Ponta</h4><p>Equipamentos modernos para tratamentos eficazes.</p></div>
+    </div>
+  </div>
+</section>
+
+<a class="wa-float" href="https://wa.me/5500000000000" target="_blank">💬</a>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

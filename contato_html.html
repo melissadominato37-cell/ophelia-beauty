@@ -1,0 +1,258 @@
+c
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/aaI3MuvQ08OqMNnHHg70XNTJSN6giHYY/3678aa06-a2f8-4fb8-8c02-b3a2e93b34dd/files/">
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato | Ophelia Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--lav:#c9a7d4;--lav-lt:#e8d8f0;--lav-xs:#f4ecf9;--pink:#d4a0b5;--pink-lt:#f5e6ef;--mauve:#9b6b8a;--dark:#3d2b4a;--marble:#faf7fb}
+    html{scroll-behavior:smooth}body{font-family:'Lato',sans-serif;color:var(--dark);background:var(--marble);overflow-x:hidden}
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(250,247,251,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--lav-lt);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:80px;transition:box-shadow .3s}header.scrolled{box-shadow:0 4px 28px rgba(155,107,138,.14)}
+    .logo-area{display:flex;align-items:center;gap:12px;text-decoration:none}.logo-area img{width:62px;height:62px;object-fit:contain}.logo-text h1{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--dark)}.logo-text span{display:block;font-size:.6rem;letter-spacing:3px;color:var(--mauve);text-transform:uppercase;margin-top:2px}
+    nav{display:flex;align-items:center;gap:6px}nav a{text-decoration:none;font-size:.87rem;color:var(--dark);font-weight:600;padding:8px 16px;border-radius:50px;transition:all .25s}nav a:hover,nav a.active{background:var(--lav-lt);color:var(--mauve)}
+    .btn-nav{background:linear-gradient(135deg,var(--lav),var(--pink));color:#fff;border:none;border-radius:50px;padding:11px 24px;font-size:.86rem;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none}.btn-nav:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(155,107,138,.35)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}.hamburger span{width:26px;height:2px;background:var(--dark);border-radius:2px;display:block}
+    .mob-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(250,247,251,.98);padding:20px 6%;flex-direction:column;gap:4px;border-bottom:1px solid var(--lav-lt)}.mob-menu.open{display:flex}.mob-menu a{text-decoration:none;font-size:.95rem;font-weight:600;color:var(--dark);padding:12px 16px;border-radius:12px;transition:all .2s}.mob-menu a:hover{background:var(--lav-lt);color:var(--mauve)}
+    .bot{position:absolute;pointer-events:none;inset:0;z-index:0;overflow:hidden}.bot svg{position:absolute}
+    /* PAGE HERO */
+    .page-hero{position:relative;padding:140px 6% 80px;overflow:hidden;background:linear-gradient(145deg,#f5eafa 0%,#fce8f4 100%);text-align:center}
+    .page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+    .page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,167,212,.18);border:1px solid rgba(201,167,212,.5);border-radius:50px;padding:6px 18px;font-size:.74rem;font-weight:700;color:var(--mauve);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+    .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:18px}.page-hero h1 em{font-style:italic;color:var(--mauve)}.page-hero p{font-size:1rem;color:#6b5876;line-height:1.75}
+    .sec{padding:90px 6%;position:relative;overflow:hidden}.inner{max-width:1100px;margin:0 auto}
+    /* CONTATO PRINCIPAL */
+    .contato-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
+    .sec-badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--mauve);font-weight:700;margin-bottom:14px}.sec-badge::before{content:'✦'}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;color:var(--dark);margin-bottom:16px;line-height:1.2}.sec-title em{font-style:italic;color:var(--mauve)}
+    .body-text{font-size:.93rem;line-height:1.78;color:#6b5876;margin-bottom:28px}
+    .info-blocks{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+    .info-block{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:16px 18px;border:1px solid rgba(201,167,212,.2);transition:all .3s}
+    .info-block:hover{background:var(--lav-xs);transform:translateX(4px)}
+    .ib-icon{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,var(--lav-lt),var(--pink-lt));display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+    .ib-text p:first-child{font-size:.76rem;color:var(--mauve);font-weight:700;letter-spacing:.5px;text-transform:uppercase}.ib-text p:last-child{font-size:.9rem;color:var(--dark);font-weight:600;margin-top:2px}
+    .social-links{display:flex;gap:10px}
+    .soc{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(201,167,212,.3);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.2rem;transition:all .3s}.soc:hover{background:var(--lav);transform:translateY(-3px);box-shadow:0 6px 16px rgba(155,107,138,.25)}
+    /* FORM */
+    .form-card{background:#fff;border-radius:24px;padding:44px 40px;box-shadow:0 20px 56px rgba(155,107,138,.1);border:1px solid rgba(201,167,212,.15)}
+    .form-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--dark);margin-bottom:6px}.form-card .sub{font-size:.84rem;color:#7a6080;margin-bottom:26px}
+    .form{display:flex;flex-direction:column;gap:16px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .fg{display:flex;flex-direction:column;gap:7px}.fg label{font-size:.8rem;font-weight:700;color:var(--dark);letter-spacing:.3px}
+    .fg input,.fg select,.fg textarea{border:1.5px solid rgba(201,167,212,.45);border-radius:11px;padding:12px 15px;font-size:.89rem;font-family:'Lato',sans-serif;color:var(--dark);background:#faf7fb;outline:none;transition:all .3s}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--lav);box-shadow:0 0 0 3px rgba(201,167,212,.18);background:#fff}
+    .fg textarea{resize:vertical;min-height:95px}
+    .btn-submit{background:linear-gradient(135deg,var(--lav),var(--pink));color:#fff;border:none;border-radius:50px;padding:15px 40px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .3s;letter-spacing:.4px;margin-top:6px}
+    .btn-submit:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(155,107,138,.4)}
+    .form-ok{display:none;background:rgba(201,167,212,.15);border:1px solid var(--lav);border-radius:12px;padding:18px;text-align:center;color:var(--mauve);font-weight:700;margin-top:10px}
+    /* HORÁRIOS */
+    .hours-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .hour-card{background:#fff;border-radius:16px;padding:24px 20px;border:1px solid rgba(201,167,212,.18);text-align:center;transition:all .3s}
+    .hour-card:hover{background:var(--lav-xs);transform:translateY(-4px)}
+    .hour-day{font-weight:700;font-size:.9rem;color:var(--dark);margin-bottom:6px}
+    .hour-time{font-size:.85rem;color:var(--mauve);font-weight:600}
+    .hour-closed{color:#aaa;font-style:italic}
+    /* MAP PLACEHOLDER */
+    .map-placeholder{background:linear-gradient(145deg,#f0ddf7,#fce8f4);border-radius:20px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--mauve);border:1px solid rgba(201,167,212,.2)}
+    .map-placeholder p{font-size:.85rem;font-weight:600}
+    footer{background:var(--dark);color:rgba(255,255,255,.6);padding:50px 6% 28px;position:relative}footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lav),var(--pink),var(--lav))}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 44px}.footer-brand p{font-size:.83rem;line-height:1.7;margin-top:12px;color:rgba(255,255,255,.5)}
+    .footer-socials{display:flex;gap:10px;margin-top:18px}.fsoc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.65);transition:all .3s;font-size:1rem}.fsoc:hover{background:var(--lav);color:#fff}
+    .footer-col h5{color:#fff;font-size:.87rem;font-weight:700;margin-bottom:16px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}.footer-col ul li a{text-decoration:none;color:rgba(255,255,255,.52);font-size:.83rem;transition:color .3s}.footer-col ul li a:hover{color:var(--lav)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;text-align:center;max-width:1100px;margin:0 auto;font-size:.78rem;color:rgba(255,255,255,.32)}
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.6rem;box-shadow:0 6px 22px rgba(37,211,102,.5);transition:all .3s}.wa-float:hover{transform:scale(1.12)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){nav{display:none}.hamburger{display:flex}header .btn-nav{display:none}.contato-layout,.footer-grid{grid-template-columns:1fr}.hours-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:580px){.form-row,.hours-grid{grid-template-columns:1fr}.form-card{padding:28px 22px}}
+  </style>
+</head>
+<body>
+<header id="navbar">
+  <a href="index.html" class="logo-area"><img src="logo.png" alt="Ophelia Beauty"/><div class="logo-text"><h1>Ophelia Beauty</h1><span>Clínica Biomédica Estética</span></div></a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="servicos.html">Serviços</a><a href="diferenciais.html">Diferenciais</a><a href="contato.html" class="active">Contato</a></nav>
+  <a href="contato.html" class="btn-nav">Agendar Avaliação ✦</a>
+</header>
+<div class="mob-menu" id="mob"><a href="index.html">🏠 Início</a><a href="sobre.html">🌸 Sobre</a><a href="servicos.html">✨ Serviços</a><a href="diferenciais.html">🏆 Diferenciais</a><a href="contato.html">📋 Contato</a></div>
+
+<div class="page-hero">
+  <div class="bot">
+    <svg width="300" height="380" viewBox="0 0 300 380" style="left:-30px;top:0;opacity:.18">
+      <path d="M20 380 Q48 288 74 212 Q100 132 82 55" stroke="#c9a7d4" stroke-width="2" fill="none"/>
+      <path d="M74 212 Q112 196 136 188" stroke="#d4a0b5" stroke-width="1.3" fill="none"/>
+      <circle cx="136" cy="188" r="5" fill="#d4a0b5" opacity=".55"/>
+      <circle cx="82" cy="55" r="11" fill="none" stroke="#d4a0b5" stroke-width="1" opacity=".5"/>
+      <circle cx="82" cy="44" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="93" cy="50" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="93" cy="60" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="82" cy="66" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="71" cy="60" r="4.5" fill="#d4a0b5" opacity=".45"/><circle cx="71" cy="50" r="4.5" fill="#c9a7d4" opacity=".45"/>
+      <circle cx="82" cy="55" r="5" fill="#f0e0f5" opacity=".8"/>
+    </svg>
+    <svg width="250" height="300" viewBox="0 0 250 300" style="right:-15px;top:20px;opacity:.14">
+      <path d="M230 0 Q204 76 180 148 Q156 224 174 295" stroke="#c9a7d4" stroke-width="2" fill="none"/>
+      <path d="M180 148 Q146 132 124 124" stroke="#d4a0b5" stroke-width="1.3" fill="none"/>
+      <circle cx="124" cy="124" r="4" fill="#d4a0b5" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="page-hero-inner reveal">
+    <div class="page-badge">📋 Fale Conosco</div>
+    <h1>Entre em <em>Contato</em></h1>
+    <p>Agende sua avaliação, tire dúvidas ou saiba mais sobre nossos tratamentos. Estamos aqui para você!</p>
+  </div>
+</div>
+
+<!-- CONTATO PRINCIPAL -->
+<section class="sec" style="background:var(--marble)">
+  <div class="bot"><svg width="200" height="250" viewBox="0 0 200 250" style="right:-10px;top:30px;opacity:.09"><path d="M180 0 Q155 65 132 128 Q110 195 126 245" stroke="#c9a7d4" stroke-width="1.8" fill="none"/><path d="M132 128 Q100 114 80 107" stroke="#d4a0b5" stroke-width="1.2" fill="none"/><circle cx="80" cy="107" r="4" fill="#d4a0b5" opacity=".5"/></svg></div>
+  <div class="inner">
+    <div class="contato-layout">
+      <div class="reveal">
+        <div class="sec-badge">Informações</div>
+        <h2 class="sec-title">Vamos <em>conversar?</em></h2>
+        <p class="body-text">Nossa equipe está pronta para atender você com todo o carinho e atenção que você merece. Entre em contato e agende sua avaliação!</p>
+        <div class="info-blocks">
+          <div class="info-block"><div class="ib-icon">📍</div><div class="ib-text"><p>Endereço</p><p>Rua Exemplo, 123 — Sua cidade, Estado</p></div></div>
+          <div class="info-block"><div class="ib-icon">📞</div><div class="ib-text"><p>Telefone / WhatsApp</p><p>(00) 00000-0000</p></div></div>
+          <div class="info-block"><div class="ib-icon">✉️</div><div class="ib-text"><p>E-mail</p><p>contato@opheliabeauty.com</p></div></div>
+          <div class="info-block"><div class="ib-icon">📸</div><div class="ib-text"><p>Instagram</p><p>@opheliabeauty</p></div></div>
+        </div>
+        <div class="social-links">
+          <a class="soc" href="#" title="Instagram">📸</a>
+          <a class="soc" href="#" title="WhatsApp">💬</a>
+          <a class="soc" href="#" title="Facebook">📘</a>
+          <a class="soc" href="#" title="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="form-card reveal" style="transition-delay:.15s">
+        <h3>✦ Agendar Avaliação</h3>
+        <p class="sub">Preencha o formulário e retornaremos em até 24h.</p>
+        <form class="form" id="form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg"><label>Nome Completo *</label><input id="f-nome" type="text" placeholder="Seu nome" required/></div>
+            <div class="fg"><label>WhatsApp *</label><input id="f-whats" type="tel" placeholder="(00) 00000-0000" required/></div>
+          </div>
+          <div class="fg"><label>E-mail *</label><input id="f-email" type="email" placeholder="seu@email.com" required/></div>
+          <div class="fg">
+            <label>Serviço de Interesse</label>
+            <select id="f-servico">
+              <option value="">Selecione um serviço...</option>
+              <option>Toxina Botulínica</option><option>Preenchimento Facial</option>
+              <option>Bioestimuladores</option><option>Skin Care Avançado</option>
+              <option>Radiofrequência</option><option>Peeling Químico</option>
+              <option>Avaliação Geral</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label>Dia Preferido</label>
+              <select id="f-dia"><option>Sem preferência</option><option>Segunda-feira</option><option>Terça-feira</option><option>Quarta-feira</option><option>Quinta-feira</option><option>Sexta-feira</option><option>Sábado</option></select>
+            </div>
+            <div class="fg">
+              <label>Turno Preferido</label>
+              <select id="f-turno"><option>Sem preferência</option><option>Manhã (9h–12h)</option><option>Tarde (13h–17h)</option><option>Final de tarde (17h–18h)</option></select>
+            </div>
+          </div>
+          <div class="fg"><label>Mensagem (opcional)</label><textarea id="f-msg" placeholder="Conte-nos sobre suas expectativas, dúvidas ou qualquer detalhe importante..."></textarea></div>
+          <button type="submit" class="btn-submit">💬 Enviar pelo WhatsApp 🌸</button>
+          <div class="form-ok" id="form-ok">✅ Redirecionando para o WhatsApp... Caso não abra, <a id="wa-link" href="#" target="_blank" style="color:var(--mauve);font-weight:700">clique aqui</a>.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORÁRIOS -->
+<section class="sec" style="background:linear-gradient(180deg,#f5eafa 0%,var(--marble) 100%);padding-top:70px;padding-bottom:70px">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:44px" class="reveal">
+      <div class="sec-badge" style="justify-content:center;display:flex">Quando Estamos Disponíveis</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--dark)">Horários de <em style="font-style:italic;color:var(--mauve)">Atendimento</em></h2>
+    </div>
+    <div class="hours-grid">
+      <div class="hour-card reveal"><div class="hour-day">Segunda-feira</div><div class="hour-time">9h às 18h</div></div>
+      <div class="hour-card reveal" style="transition-delay:.06s"><div class="hour-day">Terça-feira</div><div class="hour-time">9h às 18h</div></div>
+      <div class="hour-card reveal" style="transition-delay:.12s"><div class="hour-day">Quarta-feira</div><div class="hour-time">9h às 18h</div></div>
+      <div class="hour-card reveal" style="transition-delay:.18s"><div class="hour-day">Quinta-feira</div><div class="hour-time">9h às 18h</div></div>
+      <div class="hour-card reveal" style="transition-delay:.24s"><div class="hour-day">Sexta-feira</div><div class="hour-time">9h às 18h</div></div>
+      <div class="hour-card reveal" style="transition-delay:.30s"><div class="hour-day">Sábado</div><div class="hour-time">9h às 14h</div></div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:.84rem;color:#7a6080" class="reveal">🌿 Domingo: fechado · Feriados: horário reduzido sob consulta</p>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="sec" style="background:#fff;padding-top:70px;padding-bottom:70px">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:36px" class="reveal">
+      <div class="sec-badge" style="justify-content:center;display:flex">Onde Estamos</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--dark)">Nossa <em style="font-style:italic;color:var(--mauve)">Localização</em></h2>
+    </div>
+    <div class="map-placeholder reveal">
+      <div style="font-size:2.5rem">📍</div>
+      <p>Adicione o embed do Google Maps aqui</p>
+      <p style="font-size:.78rem;opacity:.7">Cole o código do iframe do Google Maps neste espaço</p>
+    </div>
+    <!-- Cole aqui o iframe do Google Maps:
+    <iframe src="https://maps.google.com/maps?q=SUA+CIDADE&output=embed" width="100%" height="300" style="border-radius:20px;border:0" allowfullscreen loading="lazy"></iframe>
+    -->
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo-area"><img src="logo.png" alt="Ophelia Beauty" style="width:52px;height:52px;object-fit:contain;filter:brightness(0) invert(1);opacity:.85"/><div class="logo-text" style="margin-left:10px"><h1 style="color:#fff;font-size:1.15rem">Ophelia Beauty</h1><span style="color:rgba(255,255,255,.45)">Clínica Biomédica Estética</span></div></a><p>Tecnologia, ciência e cuidado para revelar sua melhor versão.</p><div class="footer-socials"><a class="fsoc" href="#">📸</a><a class="fsoc" href="#">💬</a><a class="fsoc" href="#">📘</a></div></div>
+    <div class="footer-col"><h5>Páginas</h5><ul><li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="diferenciais.html">Diferenciais</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    <div class="footer-col"><h5>Serviços</h5><ul><li><a href="servicos.html">Toxina Botulínica</a></li><li><a href="servicos.html">Preenchimento</a></li><li><a href="servicos.html">Bioestimuladores</a></li><li><a href="servicos.html">Skin Care</a></li></ul></div>
+    <div class="footer-col"><h5>Contato</h5><ul><li><a href="#">📍 Sua cidade, Brasil</a></li><li><a href="#">📞 (00) 00000-0000</a></li><li><a href="#">✉️ contato@ophelia.com</a></li><li><a href="#">🕐 Seg–Sáb 9h–18h</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 Ophelia Beauty · Todos os direitos reservados</p></div>
+</footer>
+<a class="wa-float" href="https://wa.me/5500000000000" target="_blank">💬</a>
+<script>
+  window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // ⚠️ ALTERE AQUI o número do WhatsApp da clínica (só números, com DDI 55)
+  const WA_NUMBER = '5544999557091';
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const nome    = document.getElementById('f-nome').value.trim();
+    const whats   = document.getElementById('f-whats').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const servico = document.getElementById('f-servico').value || 'Não informado';
+    const dia     = document.getElementById('f-dia').value;
+    const turno   = document.getElementById('f-turno').value;
+    const msg     = document.getElementById('f-msg').value.trim();
+
+    const texto = [
+      '🌸 *Novo Agendamento — Ophelia Beauty*',
+      '',
+      '👤 *Nome:* ' + nome,
+      '📞 *WhatsApp:* ' + whats,
+      '✉️ *E-mail:* ' + email,
+      '💆 *Serviço:* ' + servico,
+      '📅 *Dia preferido:* ' + dia,
+      '⏰ *Turno preferido:* ' + turno,
+      msg ? '💬 *Mensagem:* ' + msg : '',
+      '',
+      '_Enviado pelo site Ophelia Beauty_'
+    ].filter(Boolean).join('%0A');
+
+    const url = 'https://wa.me/' + WA_NUMBER + '?text=' + texto;
+
+    // Atualiza o link de fallback e mostra aviso
+    document.getElementById('wa-link').href = url;
+    document.getElementById('form-ok').style.display = 'block';
+
+    // Abre o WhatsApp automaticamente
+    window.open(url, '_blank');
+
+    // Limpa o formulário após 1s
+    setTimeout(() => { e.target.reset(); }, 1000);
+    setTimeout(() => { document.getElementById('form-ok').style.display = 'none'; }, 8000);
+  }
+</script>
+</body>
+</html>
