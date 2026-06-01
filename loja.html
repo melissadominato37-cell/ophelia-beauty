@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nossa Loja | Ophelia Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lav: #c9a7d4; --lav-lt: #e8d8f0; --lav-xs: #f4ecf9;
+      --pink: #d4a0b5; --pink-lt: #f5e6ef;
+      --mauve: #9b6b8a; --dark: #3d2b4a; --white: #ffffff; --marble: #faf7fb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; color: var(--dark); background: var(--marble); overflow-x: hidden; }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(250,247,251,0.97); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--lav-lt);
+      padding: 0 4%; display: flex; align-items: center; justify-content: space-between; height: 80px;
+      transition: box-shadow .3s;
+    }
+    header.scrolled { box-shadow: 0 4px 28px rgba(155,107,138,.14); }
+    .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-area img { width: 68px; height: 68px; object-fit: contain; }
+    .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--dark); }
+    .logo-text span { display: block; font-size: .58rem; letter-spacing: 3px; color: var(--mauve); text-transform: uppercase; margin-top: 2px; }
+    nav { display: flex; align-items: center; gap: 2px; }
+    nav a {
+      text-decoration: none; font-size: .82rem; color: var(--dark); font-weight: 600;
+      padding: 7px 13px; border-radius: 50px; transition: all .25s; letter-spacing: .3px; white-space: nowrap;
+    }
+    nav a:hover, nav a.active { background: var(--lav-lt); color: var(--mauve); }
+    .btn-nav {
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      color: #fff; border: none; border-radius: 50px;
+      padding: 10px 20px; font-size: .82rem; font-weight: 700;
+      cursor: pointer; transition: all .3s; text-decoration: none; white-space: nowrap;
+    }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(155,107,138,.35); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 26px; height: 2px; background: var(--dark); border-radius: 2px; transition: .3s; display: block; }
+    .mob-menu {
+      display: none; position: fixed; top: 80px; left: 0; right: 0; z-index: 999;
+      background: rgba(250,247,251,.98); padding: 20px 6%; flex-direction: column; gap: 4px;
+      border-bottom: 1px solid var(--lav-lt); box-shadow: 0 10px 30px rgba(155,107,138,.1);
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { text-decoration: none; font-size: .95rem; font-weight: 600; color: var(--dark); padding: 12px 16px; border-radius: 12px; transition: all .2s; }
+    .mob-menu a:hover { background: var(--lav-lt); color: var(--mauve); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 120px 6% 60px;
+      background: linear-gradient(145deg, #faf7fb 0%, #f4ecf9 60%, #fce8f4 100%);
+      text-align: center;
+    }
+    .page-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--dark); margin-bottom: 16px;
+    }
+    .page-hero h2 em { color: var(--mauve); font-style: italic; }
+    .page-hero p { font-size: 1rem; color: #6b5876; max-width: 600px; margin: 0 auto; line-height: 1.75; }
+
+    /* EXTERIOR SECTION */
+    .loja-section {
+      padding: 60px 6%;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .sec-header { text-align: center; margin-bottom: 40px; }
+    .sec-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--dark); margin-bottom: 10px;
+    }
+    .sec-header h3 span { color: var(--mauve); }
+    .sec-header p { font-size: .95rem; color: #7a6080; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+    .sec-line { width: 70px; height: 3px; background: linear-gradient(90deg, var(--lav), var(--pink)); border-radius: 3px; margin: 14px auto 0; }
+
+    /* EXTERIOR IMAGE */
+    .exterior-wrap {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(155,107,138,.22);
+      margin-bottom: 24px;
+    }
+    .exterior-wrap img { width: 100%; display: block; max-height: 620px; object-fit: cover; }
+
+    /* FEATURES ROW */
+    .feat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0;
+    }
+    .feat-box {
+      background: #fff; border-radius: 18px; padding: 24px 20px; text-align: center;
+      box-shadow: 0 4px 20px rgba(155,107,138,.1); transition: transform .3s;
+    }
+    .feat-box:hover { transform: translateY(-5px); }
+    .feat-box .icon { font-size: 2rem; margin-bottom: 12px; }
+    .feat-box h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 8px; }
+    .feat-box p { font-size: .8rem; color: #8a7090; line-height: 1.5; }
+
+    /* DIVIDER */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--lav-lt), transparent);
+      margin: 20px 6%;
+    }
+
+    /* PLANTA */
+    .planta-wrap {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(155,107,138,.2);
+      margin-bottom: 30px;
+    }
+    .planta-wrap img { width: 100%; display: block; }
+
+    /* 3D PLANTA */
+    .planta-3d {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(155,107,138,.18);
+    }
+    .planta-3d img { width: 100%; display: block; }
+
+    /* ROOMS GRID */
+    .rooms-info {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0;
+    }
+    .room-item {
+      background: #fff; border-radius: 14px; padding: 18px 16px;
+      box-shadow: 0 3px 14px rgba(155,107,138,.09);
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .room-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .85rem;
+    }
+    .room-info h5 { font-size: .9rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .room-info p { font-size: .74rem; color: #8a7090; line-height: 1.4; }
+
+    /* CTA */
+    .loja-cta {
+      background: linear-gradient(135deg, var(--lav), var(--pink));
+      border-radius: 24px; padding: 50px 40px; text-align: center; margin: 50px 6%;
+      color: #fff;
+    }
+    .loja-cta h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 14px; }
+    .loja-cta p { font-size: .97rem; opacity: .9; margin-bottom: 28px; line-height: 1.6; }
+    .btn-white {
+      background: #fff; color: var(--mauve); border-radius: 50px;
+      padding: 14px 36px; font-size: .95rem; font-weight: 700;
+      text-decoration: none; display: inline-block; transition: all .3s;
+    }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25d366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.6rem;
+      box-shadow: 0 6px 22px rgba(37,211,102,.5); transition: all .3s;
+    }
+    .wa-float:hover { transform: scale(1.12); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:960px){
+      nav { display: none; }
+      .hamburger { display: flex; }
+      header .btn-nav { display: none; }
+      .feat-row { grid-template-columns: 1fr 1fr; }
+      .rooms-info { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:580px){
+      .feat-row { grid-template-columns: 1fr; }
+      .rooms-info { grid-template-columns: 1fr; }
+      .loja-cta { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="navbar">
+  <a href="index.html" class="logo-area">
+    <img src="../uploads/logo.png.jpeg" alt="Ophelia Beauty"/>
+    <div class="logo-text"><h1>Ophelia Beauty</h1><span>Biomedicina Estética</span></div>
+  </a>
+  <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="loja.html" class="active">Nossa Loja</a>
+    <a href="diferenciais.html">Diferenciais</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+  <a href="contato.html" class="btn-nav">Agendar Avaliação ✦</a>
+</header>
+<div class="mob-menu" id="mob">
+  <a href="index.html">🏠 Início</a>
+  <a href="sobre.html">🌸 Sobre</a>
+  <a href="servicos.html">✨ Serviços</a>
+  <a href="produtos.html">🛍️ Produtos</a>
+  <a href="loja.html">🏪 Nossa Loja</a>
+  <a href="diferenciais.html">🏆 Diferenciais</a>
+  <a href="contato.html">📋 Contato</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h2>Nossa <em>Loja</em></h2>
+  <p>Um espaço pensado em cada detalhe para proporcionar conforto, segurança e uma experiência única. Conheça nossa clínica por dentro e por fora!</p>
+</div>
+
+<!-- EXTERIOR -->
+<div class="loja-section">
+  <div class="sec-header reveal">
+    <h3>Fachada <span>da Clínica</span></h3>
+    <p>Arquitetura sofisticada e acolhedora, projetada para transmitir elegância e bem-estar desde o primeiro olhar.</p>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="exterior-wrap reveal">
+    <img src="../uploads/WhatsApp_Image_2026-05-27_at_20.24.02.jpeg" alt="Fachada Ophelia Beauty — Vista Externa"/>
+  </div>
+
+  <div class="feat-row">
+    <div class="feat-box reveal">
+      <div class="icon">✨</div>
+      <h4>Design Exclusivo</h4>
+      <p>Ambiente sofisticado e acolhedor totalmente integrado para a melhor experiência desde a chegada.</p>
+    </div>
+    <div class="feat-box reveal" style="transition-delay:.1s">
+      <div class="icon">🌿</div>
+      <h4>Ambientes Amplos</h4>
+      <p>Espaços projetados para o seu conforto, bem-estar e privacidade em todos os momentos.</p>
+    </div>
+    <div class="feat-box reveal" style="transition-delay:.2s">
+      <div class="icon">🔒</div>
+      <h4>Privacidade Total</h4>
+      <p>Atendimento discreto em ambientes individuais para que você se sinta completamente à vontade.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PLANTA INFOGRÁFICO -->
+<div class="loja-section">
+  <div class="sec-header reveal">
+    <h3>Um Espaço <span>Completo</span></h3>
+    <p>Cada ambiente foi pensado nos mínimos detalhes para proporcionar conforto, segurança e uma experiência única para você!</p>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="planta-wrap reveal">
+    <img src="../uploads/WhatsApp_Image_2026-05-27_at_20.24.02__1_.jpeg" alt="Planta da Clínica — Um Espaço Completo"/>
+  </div>
+
+  <!-- ROOMS LIST -->
+  <div class="rooms-info">
+    <div class="room-item reveal">
+      <div class="room-num">01</div>
+      <div class="room-info"><h5>Recepção</h5><p>Ambiente acolhedor e elegante para receber você com todo carinho desde o primeiro momento.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.06s">
+      <div class="room-num">02</div>
+      <div class="room-info"><h5>Sala de Espera Premium</h5><p>Conforto, design e tecnologia para uma espera agradável e tranquila.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.12s">
+      <div class="room-num">03</div>
+      <div class="room-info"><h5>Consultórios</h5><p>Consultas personalizadas em ambiente reservado e confortável para seu planejamento.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.18s">
+      <div class="room-num">04</div>
+      <div class="room-info"><h5>Banheiro Feminino</h5><p>Estrutura moderna, acessível e equipada com todo conforto para você.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.24s">
+      <div class="room-num">05</div>
+      <div class="room-info"><h5>Banheiro Masculino</h5><p>Estrutura moderna, acessível e equipada para maior comodidade.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.3s">
+      <div class="room-num">06</div>
+      <div class="room-info"><h5>Sala de Tratamentos</h5><p>Equipamentos de última geração e protocolos avançados para resultados superiores.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.36s">
+      <div class="room-num">07</div>
+      <div class="room-info"><h5>Laboratório</h5><p>Análises precisas com equipamentos avançados e confiáveis para sua segurança.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.42s">
+      <div class="room-num">08</div>
+      <div class="room-info"><h5>CME / Esterilização</h5><p>Central de materiais esterilizados com tecnologia de ponta e segurança total.</p></div>
+    </div>
+    <div class="room-item reveal" style="transition-delay:.48s">
+      <div class="room-num">09</div>
+      <div class="room-info"><h5>Apoio & Equipe</h5><p>Ambiente de suporte para reuniões, descanso da equipe e apoio operacional.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PLANTA 3D -->
+<div class="loja-section">
+  <div class="sec-header reveal">
+    <h3>Planta <span>em 3D</span></h3>
+    <p>Visualize o layout completo da nossa clínica — cada espaço projetado com tecnologia, ciência e acolhimento.</p>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="planta-3d reveal">
+    <img src="../uploads/WhatsApp_Image_2026-05-27_at_20.24.02__2_.jpeg" alt="Planta 3D da Clínica Ophelia Beauty"/>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="loja-cta reveal">
+  <h3>Venha nos Conhecer!</h3>
+  <p>Agende sua avaliação gratuita e venha descobrir pessoalmente a experiência única que preparamos para você.</p>
+  <a href="contato.html" class="btn-white">Agendar Avaliação →</a>
+</div>
+
+<a class="wa-float" href="https://wa.me/5500000000000" target="_blank">💬</a>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
